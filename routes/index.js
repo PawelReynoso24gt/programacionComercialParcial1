@@ -6,6 +6,7 @@ const router = Router();
 const empleadosController = require('../controllers/empleadoController');
 const proyectosController = require('../controllers/proyectoController');
 const asignacionController = require('../controllers/asignacionController');
+const alertaController = require('../controllers/alertaController');
 
 //RUTAS
 
@@ -57,6 +58,21 @@ module.exports = (app) => {
 
     // Eliminar una asignación por ID
     router.delete('/asignaciones/:idAsignacion', asignacionController.deleteAsignacion);
+
+    // Crear una nueva alerta
+    router.post('/alertas/create', alertaController.createAlerta);
+
+    // Obtener todas las alertas
+    router.get('/alertas', alertaController.getAllAlertas);
+
+    // Obtener una alerta por ID
+    router.get('/alertas/:idAlerta', alertaController.getAlertaById);
+
+    // Actualizar una alerta por ID
+    router.put('/alertas/:idAlerta', alertaController.updateAlerta);
+
+    // Eliminar una alerta por ID
+    router.delete('/alertas/:idAlerta', alertaController.deleteAlerta);
 
     app.use('/', router);
 

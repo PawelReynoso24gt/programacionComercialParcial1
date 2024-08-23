@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
       Proyectos.hasMany(models.Asignacion, {
         foreignKey: 'idProyecto'
       });
+
+      Proyectos.hasMany(models.Alerta, {
+        foreignKey: 'idProyecto'
+      });
     }
   };
 
